@@ -1,4 +1,5 @@
 # coin-ticker
+https://desaille.fr/raspberry-pi-bitcoin-ticker/
 
 Installer les dépendances python 
 
