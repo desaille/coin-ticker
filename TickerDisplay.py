@@ -14,6 +14,15 @@ BTCBAL = float(0.55)
 # Investissement initial (euros)
 BASE = float(2700)
 
+def connection_check():
+    try:
+        requests.get("http://google.com", timeout=3)
+        return True
+    except requests.ConnectionError:
+        pass
+
+    return False
+
 def main():
     # Initialisation de l'afficheur
     epd = epd2in13.EPD()
@@ -41,8 +50,12 @@ def main():
             BTCBLK = gBLK.text
         else:
             BTCBLK = 0  
-        # On calcule ici le nombre de block restants avant le fork Segwit2x
-        SEGWIT = 494784 - int(BTCBLK)
+
+        # Check si la connexion internet est fonctionnelle
+        if connection_check():
+            WAN = 'OK'
+        else:
+            WAN = 'FAIL'
         
         # Traitements et calculs des valeurs 
         # ETHEREUM
@@ -85,7 +98,7 @@ def main():
         small = ImageFont.truetype(police, 16)
         # Generation de l'image a afficher
         draw.text((10, 0), time.strftime('%H:%M'), font = small, fill = 0)
-        draw.text((183, 0), 'b2x :'+ str(SEGWIT), font = small, fill = 0)
+        draw.text((183, 0), 'WAN '+ str(WAN), font = small, fill = 0)
         draw.text((115, 10), 'jour', font = small, fill = color)
         draw.text((70, 20), str("%.2f" % PERCENT_TOTAL_NOW_FROM_24H), font = big, fill = color)
         draw.text((10, 80), 'heure', font = small, fill = color)
