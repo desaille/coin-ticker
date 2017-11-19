@@ -37,9 +37,10 @@ Enjoy !
 
 Un script cointicker_miner.sh existe se basant sur TickerDisplay_Miner.py.
 Il utilise Nicehash et EthOS en variables d'entrée que vous retrouverez dans le fichier TickerDisplay_Miner.py :
-> NH_WALLET   = '<votre wallet nicehash>'
-> NH_API_KEY  = '<une API key en RO suffit de votre compte nicehash>'
-> NH_API_ID   = '<une API ID de votre compte nicehash>'
-> ETHOS_ID    = '<l'ID de votre instance ethos (disponible via `helpme` sur ethos : XXXX.ethosdistro.com)'
-
+```
+NH_WALLET   = '<votre wallet nicehash>'
+NH_API_KEY  = '<une API key en RO suffit de votre compte nicehash>'
+NH_API_ID   = '<une API ID de votre compte nicehash>'
+ETHOS_ID    = '<l'ID de votre instance ethos (disponible via `helpme` sur ethos : XXXX.ethosdistro.com)'
+```
 Cela affiche le hashrate de vos rigs, le rendement sur nicehash, le court actuel du bitcoin, l'heure, la date et un test simple de votre connexion internet.
